@@ -30,7 +30,7 @@ describe ArtistRepository do
     expect(artist.name).to eq('Taylor Swift')
   end
 
-  it 'creates an album' do
+  it 'creates an artist' do
     repo = ArtistRepository.new
 
     artist = Artist.new
@@ -42,5 +42,14 @@ describe ArtistRepository do
 
     expect(artists.length).to eq(5)
     expect(artists.last.name).to eq('Kiasmos')
+  end
+
+  it 'deletes an artist' do
+    repo = ArtistRepository.new
+
+    repo.delete(5)
+    artists = repo.all
+
+    expect(artists.length).to eq(4)
   end
 end

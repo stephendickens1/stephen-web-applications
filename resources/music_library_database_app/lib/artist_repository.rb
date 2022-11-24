@@ -44,4 +44,9 @@ class ArtistRepository
 
     return artist
   end
+
+  def delete(id)
+    sql = 'DELETE FROM artists WHERE id = $1;';
+    DatabaseConnection.exec_params(sql, [id]);
+  end
 end
